@@ -1,3 +1,4 @@
+{% set nginx = pillar.get('nginx') %}
 nginx:
   pkg:
     - installed

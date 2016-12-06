@@ -1,19 +1,19 @@
-# Install from source:
-node:
-  version: 7.2.0
-  install_from_source: True
-  checksum: 1dfe37a00cf0ed62beb73071f571ac56697f544a98cc2ff3318faec6363d72ab
-  make_jobs: 2
+# # Install from source:
+# node:
+#   version: 7.2.0
+#   install_from_source: True
+#   checksum: c3f53a5d8cea145e25706bb21cdac62f1b3314db35785bcf468558a29cfc352f
+#   make_jobs: 2
 
-# Install from binary:
-node:
-  version: 7.2.0
-  install_from_binary: True
-  checksum: f037e2734f52b9de63e6d4a4e80756477b843e6f106e0be05591a16b71ec2bd0
+# # Install from binary:
+# node:
+#   version: 7.2.0
+#   install_from_binary: True
+#   checksum: f3b8451924b36e289a7113ad42fa36bb95d0dd471fed3e2e6822caad3ee871e6
 
 # Install from PPA:
 node:
-  version: 7.2.0
+  version: 7.0.0
   install_from_ppa: True
   ppa:
     repository_url: https://deb.nodesource.com/node_7.x

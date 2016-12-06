@@ -1,6 +1,6 @@
-essential-packages:
+essential_packages:
   pkg.installed:
-    pkgs:
+    - pkgs:
       - bash
       - build-essential
       - git

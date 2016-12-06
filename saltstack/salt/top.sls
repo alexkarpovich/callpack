@@ -2,7 +2,7 @@ base:
   '*':
     - requirements
     - users
-    - ssh
+    #- ssh
     - logging
     - nginx
     - node

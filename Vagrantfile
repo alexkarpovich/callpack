@@ -13,5 +13,6 @@ Vagrant.configure(2) do |config|
   	salt.bootstrap_options = "-P"
     salt.minion_config = "saltstack/minion"
     salt.run_highstate = true
+    salt.verbose = true
   end
 end

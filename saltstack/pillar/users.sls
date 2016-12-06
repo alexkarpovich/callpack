@@ -1,9 +1,8 @@
 users:
-
   akarpovich:
-    fullname: Aliaksandr Karpovich
+    fullname: 'Aliaksandr Karpovich'
     uid: 1010
-    password: $6$H.P7dtUq$6.Zs6/segajQBYT1eLLkK6xkFut2E/prGF4fb0k2u9ZaO8PbEsRC/DQb1affzhfjrD4HFkpXakxC/2S6WQXSI/:17141:0:99999:7:::
+    password: $6$GyOmJv0m$F0DivvtOiI0fMxQEYjZ98mTAEQleUQmCRyV8TZ5RdCICogVenB/q/ia4/B4ayywSVv72ZaKaKvqjwT3ejUgdv
     groups:
       - sudo # Admin
       - adm # Monitor system logs
