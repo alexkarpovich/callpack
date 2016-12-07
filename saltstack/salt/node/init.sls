@@ -8,3 +8,16 @@ include:
   - .pkg
 {%- endif %}
   - .config
+
+npm:
+  pkg.installed:
+    - require:
+      - pkg: nodejs
+
+npm-packages:
+  npm.installed:
+    - names:
+      - express
+      - webpack
+    - require:
+      - pkg: npm

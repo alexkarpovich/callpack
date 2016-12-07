@@ -7,7 +7,8 @@ Vagrant.configure(2) do |config|
   config.vm.synced_folder "saltstack/salt", "/srv/salt/"
   config.vm.synced_folder "saltstack/pillar", "/srv/pillar/"
   config.vm.synced_folder "saltstack/keys", "/srv/keys/"
-  #config.vm.synced_folder "app", "/var/www/app"
+  config.vm.synced_folder "api", "/app"
+  config.vm.synced_folder "web", "/web"
 
   config.vm.provision :salt do |salt|
   	salt.bootstrap_options = "-P"
