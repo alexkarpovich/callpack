@@ -2,12 +2,13 @@ Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
 
   config.vm.hostname = "local.callpack.by"
-  config.vm.network :private_network, ip: '3.3.3.3'
+  config.vm.network :private_network, ip: '5.5.5.5'
+  config.vm.network "forwarded_port", guest: 8080, host: 8888
 
   config.vm.synced_folder "saltstack/salt", "/srv/salt/"
   config.vm.synced_folder "saltstack/pillar", "/srv/pillar/"
   config.vm.synced_folder "saltstack/keys", "/srv/keys/"
-  config.vm.synced_folder "api", "/app"
+  config.vm.synced_folder "api", "/api"
   config.vm.synced_folder "web", "/web"
 
   config.vm.provision :salt do |salt|
