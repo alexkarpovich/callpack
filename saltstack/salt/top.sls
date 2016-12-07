@@ -7,3 +7,4 @@ base:
     - nginx
     - node
     - mongodb
+    - redis
