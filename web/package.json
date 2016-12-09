@@ -1,7 +1,7 @@
 {
-  "name": "spornic",
+  "name": "ratio",
   "version": "1.0.0",
-  "description": "Spornic",
+  "description": "Ratio",
   "main": "index.js",
   "scripts": {
     "webpack": "webpack",
@@ -34,14 +34,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alexkarpovich/spornic.git"
+    "url": "git+https://github.com/alexkarpovich/ratio.git"
   },
-  "author": "StratiFi",
-  "license": "ISC",
+  "author": "Aliaksandr Karpovich",
   "bugs": {
-    "url": "https://github.com/alexkarpovich/spornic/issues"
+    "url": "https://github.com/alexkarpovich/ratio/issues"
   },
-  "homepage": "https://github.com/alexkarpovich/spornic#readme",
+  "homepage": "https://github.com/alexkarpovich/ratio#readme",
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.2",
     "classnames": "~2.2.5",

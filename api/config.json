@@ -1,5 +1,17 @@
 {
-	"port": 8111,
-	"bodyLimit": "100kb",
-	"corsHeaders": ["Link"]
+  "port": 8111,
+  "bodyLimit": "100kb",
+  "secret": "secret",
+	"cors": {
+    "origin": "*",
+    "credentials": true,
+    "exposedHeaders": ["Link"]
+  },
+  "db": {
+    "name": "ratio"
+  },
+  "ws": {
+    "port": 8181,
+    "handshake": true
+  }
 }

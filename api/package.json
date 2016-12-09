@@ -1,35 +1,36 @@
 {
+  "name": "Ratio",
   "version": "1.0.0",
+  "description": "Ratio",
+  "main": "app.js",
   "scripts": {
-    "dev": "nodemon -w src --exec \"babel-node src --presets es2015,stage-0\"",
-    "build": "babel src -s -D -d dist --presets es2015,stage-0",
-    "start": "node dist",
-    "prestart": "npm run -s build",
-    "test": "eslint src"
+    "start": "concurrently \"supervisor app.js\"",
+    "test": "node_modules/.bin/mocha tests/**"
   },
-  "eslintConfig": {
-    "extends": "eslint:recommended",
-    "parserOptions": {
-      "ecmaVersion": 7,
-      "sourceType": "module"
-    },
-    "env": {
-      "node": true
-    },
-    "rules": {
-      "no-console": 0,
-      "no-unused-vars": 1
-    }
-  },
+  "keywords": [
+    "base",
+    "project",
+    "node",
+    "express",
+    "structure"
+  ],
+  "author": "Aliaksandr Karpovich",
+  "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.13.3",
-    "compression": "^1.5.2",
+    "body-parser": "^1.12.3",
+    "connect-mongo": "^1.1.0",
     "cors": "^2.7.1",
-    "express": "^4.13.3",
-    "resource-router-middleware": "^0.5.1"
+    "express": "^4.12.3",
+    "express-jwt": "^3.3.0",
+    "express-session": "^1.13.0",
+    "jade": "^1.9.2",
+    "jsonwebtoken": "^5.7.0",
+    "mongoose": "^4.4.7",
+    "socket.io": "^1.4.5",
+    "socketio-jwt": "^4.3.4"
   },
   "devDependencies": {
-    "eslint": "^3.1.1",
-    "nodemon": "^1.9.2"
+    "mocha": "^2.2.4",
+    "should": "^6.0.1"
   }
 }

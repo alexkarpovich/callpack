@@ -19,5 +19,7 @@ npm-packages:
     - names:
       - express
       - webpack
+      - concurrently
+      - supervisor
     - require:
       - pkg: npm
