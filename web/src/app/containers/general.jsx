@@ -1,14 +1,11 @@
 import React, {Component, PropTypes} from 'react';
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {routerActions} from 'react-router-redux';
 
-
-class Authentication extends Component {
+class General extends Component {
   render() {
     return (
       <div>
-          {this.props.children}
+        General
       </div>
     )
   }
@@ -19,4 +16,4 @@ export default connect(
   }),
   dispatch => ({
   }),
-)(Authentication);
+)(General);
