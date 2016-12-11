@@ -2,7 +2,7 @@
   "port": 8111,
   "bodyLimit": "100kb",
   "secret": "secret",
-	"cors": {
+  "cors": {
     "origin": "*",
     "credentials": true,
     "exposedHeaders": ["Link"]

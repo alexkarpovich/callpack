@@ -1,9 +1,9 @@
 const config = {
-  api: 'https://local.ratio.by/api',
+  api: 'https://api.ratio.by/',
   intl: {
     locale: 'en',
     formats: {}
   },
-}
+};
 
 export default config;

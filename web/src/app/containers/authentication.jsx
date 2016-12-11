@@ -4,10 +4,10 @@ import {connect} from 'react-redux';
 import {routerActions} from 'react-router-redux';
 
 
-class Authentication extends Component {
+class AuthContainer extends Component {
   render() {
     return (
-      <div>
+      <div className="auth-container">
           {this.props.children}
       </div>
     )
@@ -19,4 +19,4 @@ export default connect(
   }),
   dispatch => ({
   }),
-)(Authentication);
+)(AuthContainer);

@@ -1,14 +1,14 @@
 import React, {Component, PropTypes } from 'react';
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {routerActions} from 'react-router-redux';
 import Nav from '../components/nav';
+import Progress from '../components/common/progress';
 
 
-class App extends Component {
+class AppContainer extends Component {
   render() {
     return (
-      <div className="app">
+      <div className="app-container">
+        <Progress color="blue" active={false} value={100} />
         <Nav />
         {this.props.children}
       </div>
@@ -21,4 +21,4 @@ export default connect(
   }),
   dispatch => ({
   }),
-)(App);
+)(AppContainer);

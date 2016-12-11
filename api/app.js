@@ -15,7 +15,7 @@ app.use(cors(config.cors));
 app.use(require('./controllers'));
 
 require('./db');
-require('./websocket')(server);
+require('./ws')(server);
 
 server.listen(port, () => {
     console.log('Listening on port ' + port)

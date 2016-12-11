@@ -1,10 +1,10 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 
-class General extends Component {
+class GeneralContainer extends Component {
   render() {
     return (
-      <div>
+      <div className="general-container">
         General
       </div>
     )
@@ -16,4 +16,4 @@ export default connect(
   }),
   dispatch => ({
   }),
-)(General);
+)(GeneralContainer);

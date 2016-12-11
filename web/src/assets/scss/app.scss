@@ -1,5 +1,14 @@
-@import './nav.scss';
+@import './variables.scss';
+
+.app-container {
+  @import './inputs';
+  @import './nav.scss';
+  @import './progress-bar.scss';
+  @import './components';
+}
 
 body {
-  background-color: #f5f5f5;
+  background-color: $bg-color;
 }
+
+

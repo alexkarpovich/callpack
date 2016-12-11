@@ -1,9 +1,9 @@
 Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
 
-  config.vm.hostname = "local.callpack.by"
+  config.vm.hostname = "ratio.by"
   config.vm.network :private_network, ip: '5.5.5.5'
-  config.vm.network "forwarded_port", guest: 8080, host: 8888
+  config.hostsupdater.aliases = ['api.ratio.by', 'static.ratio.by']
 
   config.vm.synced_folder "saltstack/salt", "/srv/salt/"
   config.vm.synced_folder "saltstack/pillar", "/srv/pillar/"
