@@ -1,11 +1,17 @@
 input[type=text].form-input {
-  height: 24px;
+  height: 27px;
   width: 100%;
   border: 1px solid #c7c7c7;
   border-radius: 2px;
-  box-shadow: inset 1px 1px 2px #dedede;
   background-color: #fbfbfb;
   font-size: 14px;
   color: #66427b;
   padding: 5px;
+  outline: none;
+  transition: all .3s;
+
+  &:focus {
+    height: 33px;
+    border: 1px solid rgb(178, 136, 232);
+  }
 }

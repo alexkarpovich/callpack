@@ -2,6 +2,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const config = require('../config');
+const redisClient = require('../redis');
 const router = express.Router();
 
 
@@ -27,9 +28,11 @@ router.post('/signup', (req, res) => {
                 return
             }
 
-            var token = jwt.sign(createdUser.toObject(), config.secret, {
+            const token = jwt.sign(createdUser.toObject(), config.secret, {
                 expiresIn: 1440 * 60
             });
+
+            redisClient.set(token, JSON.stringify(createdUser.toObject()));
 
             return res.json({token: token});
         });
@@ -54,6 +57,8 @@ router.post('/signin', (req, res) => {
         const token = jwt.sign(user.toObject(), config.secret, {
             expiresIn: 1440 * 60
         });
+
+        redisClient.set(token, JSON.stringify(createdUser.toObject()));
 
         return res.json({token: token});
     });

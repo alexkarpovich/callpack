@@ -16,6 +16,7 @@ app.use(require('./controllers'));
 
 require('./db');
 require('./ws')(server);
+require('./redis');
 
 server.listen(port, () => {
     console.log('Listening on port ' + port)

@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react';
+import {Link} from 'react-router';
 
 
 class Nav extends Component {
@@ -12,20 +13,20 @@ class Nav extends Component {
     return (
       <div className="nav">
         <div className="brand">
-          <a href="/">ratio</a>
+          <Link to={'/'}>ratio</Link>
         </div>
         <div className="nav-items">
         {
           items.map((item, i) =>
             <div key={i} className="nav-item">
-              <a href={item.href}>{item.title}</a>
+              <Link to={item.href}>{item.title}</Link>
             </div>
           )
         }
         </div>
         <div className="nav-actions">
-          <a href="/signin">sign in</a>
-          <a href="/signup">sign up</a>
+          <Link to={'/signin'}>sign in</Link>
+          <Link to={'/signup'}>sign up</Link>
         </div>
       </div>
     );

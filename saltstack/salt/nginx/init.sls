@@ -30,6 +30,7 @@ nginx_run:
   service.running:
     - name: nginx
     - enable: True
+    - reload: True
     - watch:
       - file: /etc/nginx/sites-available/{{ nginx.get('dns_name') }}
     - require:

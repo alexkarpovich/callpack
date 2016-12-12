@@ -1,6 +1,7 @@
-import jwtDecode from 'jwt-decode'
-import {AuthConst} from '../constants/auth'
-import api from '../utils/api'
+import jwtDecode from 'jwt-decode';
+import AuthConst from '../constants/auth';
+import Auth from '../utils/auth';
+import api from '../utils/api';
 
 
 export function signin(credentials) {
@@ -8,12 +9,12 @@ export function signin(credentials) {
     dispatch({type: AuthConst.SIGNIN_REQUEST});
 
     api({url: 'signin/', method: 'post', data: credentials}).then(data => {
-      setAuthToken(data.token);
+      Auth.token = data.token;
 
       dispatch({type: AuthConst.SIGNIN_SUCCESS});
       dispatch(getAuthUser(data.token));
     }, error => {
-      removeAuthToken();
+      Auth.removeToken();
 
       dispatch(requestError(error, AuthConst.SIGNIN));
     });
@@ -22,7 +23,7 @@ export function signin(credentials) {
 
 export function getAuthUser(token) {
   return dispatch => {
-    let authUser = jwtDecode(token);
+    let authUser = Auth.getUser(token);
 
     dispatch({type: AuthConst.GET_AUTH_USER_REQUEST});
 
@@ -41,31 +42,24 @@ export function signup(credentials) {
     api({url: 'signup/', method: 'post', data: credentials}).then(data => {
       dispatch({type: AuthConst.SIGNUP_SUCCESS});
 
-      if (data.user && data.token) {
-        setAuthToken(data.token);
+      if (/*data.user && */data.token) {
+        Auth.token = data.token;
+        let authUser = Auth.getUser(data.token);
 
-        dispatch({type: AuthConst.SET_AUTH_USER, authUser: data.user});
+        dispatch({type: AuthConst.SET_AUTH_USER, authUser/*: data.user*/});
       }
     }, error => {
-      dispatch(requestError(error.errors, AuthConst.SIGNUP_USER));
+      dispatch(requestError(error.errors, AuthConst.SIGNUP));
     });
   }
 }
 
 export function signout() {
-  removeAuthToken();
+  Auth.removeToken();
 
   return {
     type: AuthConst.SIGNOUT
   }
-}
-
-function setAuthToken(token) {
-  localStorage.setItem('token', token);
-}
-
-function removeAuthToken() {
-  localStorage.removeItem('token');
 }
 
 function requestError(errors, type) {

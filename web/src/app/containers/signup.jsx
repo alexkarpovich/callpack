@@ -12,6 +12,7 @@ class SignupContainer extends Component {
   }
 
   render() {
+    console.log(this.props.authUser);
     return (
       <div className="signup-container">
         <Signup />
@@ -26,6 +27,7 @@ SignupContainer.childContextTypes = {
 
 export default connect(
   state => ({
+    authUser: state.auth,
   }),
   dispatch => ({
     actions: bindActionCreators({

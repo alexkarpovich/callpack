@@ -1,6 +1,6 @@
 import keymirror from 'keymirror';
 
-export const AuthConst = keymirror({
+export default keymirror({
   SIGNIN: null,
   SIGNIN_REQUEST: null,
   SIGNIN_SUCCESS: null,
