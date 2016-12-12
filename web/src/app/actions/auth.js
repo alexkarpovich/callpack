@@ -21,13 +21,11 @@ export function signin(credentials) {
   }
 }
 
-export function getAuthUser(token) {
+export function getAuthUser() {
   return dispatch => {
-    let authUser = Auth.getUser(token);
-
     dispatch({type: AuthConst.GET_AUTH_USER_REQUEST});
 
-    api({url: `user/${authUser.user_id}/`}).then(data => {
+    api({url: `user/${Auth.user._id}/`}).then(data => {
       dispatch({type: AuthConst.GET_AUTH_USER_SUCCESS, authUser: data});
     }, error => {
       dispatch(requestError(error, AuthConst.GET_AUTH_USER));

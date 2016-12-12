@@ -4,6 +4,7 @@ import {Link} from 'react-router';
 
 class Nav extends Component {
   render() {
+    const {auth} = this.props;
     const items = [
       {title: 'one', href: '/one'},
       {title: 'two', href: '/two'},
@@ -24,13 +25,24 @@ class Nav extends Component {
           )
         }
         </div>
-        <div className="nav-actions">
-          <Link to={'/signin'}>sign in</Link>
-          <Link to={'/signup'}>sign up</Link>
-        </div>
+        {!auth.isLoggedIn ? (
+          <div className="nav-actions">
+            <Link to={'/signin'}>sign in</Link>
+            <Link to={'/signup'}>sign up</Link>
+          </div>
+        ) : (
+          <div className="nav-actions">
+            <Link to={'/signout'}>sign out</Link>
+            <Link to={'/profile'}>User</Link>
+          </div>
+        )}
       </div>
     );
   }
 }
+
+Nav.propTypes = {
+  auth: PropTypes.object.isRequired,
+};
 
 export default Nav;

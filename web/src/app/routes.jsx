@@ -8,10 +8,12 @@ import {createHistory} from 'history';
 import config from './config';
 import store from './store';
 import AccessControl from './utils/access-control';
+import AuthContainer from './containers/auth';
 import AppContainer from './containers/app';
 import LoggedinContainer from './containers/loggedin';
 import GeneralContainer from './containers/general';
 import SignupContainer from './containers/signup';
+import SigninContainer from './containers/signin';
 
 
 const browserHistory = useRouterHistory(createHistory)({basename: '/'});
@@ -21,16 +23,19 @@ const accessControl = new AccessControl(store);
 export default (
   <Provider store={store}>
     <IntlProvider locale="en" {...config.intl}>
-      <Router history={history}>
-        <Route path="/" component={AppContainer}>
-          <IndexRoute component={GeneralContainer} />
-          <Route path="/signup" component={SignupContainer} />
+      <AuthContainer>
+        <Router history={history}>
+          <Route path="/" component={AppContainer}>
+            <IndexRoute component={GeneralContainer} />
+            <Route path="/signup" component={SignupContainer} />
+            <Route path="/signin" component={SigninContainer} />
 
-          <Route path="/" component={LoggedinContainer} onEnter={accessControl.isLoggedIn}>
+            <Route path="/" component={LoggedinContainer} onEnter={accessControl.isLoggedIn}>
 
+            </Route>
           </Route>
-        </Route>
-      </Router>
+        </Router>
+      </AuthContainer>
     </IntlProvider>
   </Provider>
 );

@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {reduxForm } from 'redux-form';
-import validateSignup from '../utils/validateSignup';
+import validateSignin from '../utils/validateSignin';
 
-class SignupForm extends Component {
+class SigninForm extends Component {
   render() {
-    const {fields: {email, password, confirmPassword}, handleSubmit} = this.props;
+    const {fields: {email, password}, handleSubmit} = this.props;
 
     return (
       <form onSubmit={handleSubmit}>
@@ -18,11 +18,6 @@ class SignupForm extends Component {
           <input type="text" className="form-input" {...password} />
           {password.error && password.touched && <div>{password.error}</div>}
         </div>
-        <div>
-          <label>Confirm Password</label>
-          <input type="text" className="form-input" {...confirmPassword}/>
-          {confirmPassword.error && confirmPassword.touched && <div>{confirmPassword.error}</div>}
-        </div>
 
         <button onClick={handleSubmit}>Submit</button>
       </form>
@@ -30,16 +25,15 @@ class SignupForm extends Component {
   }
 }
 
-SignupForm = reduxForm({
-  form: 'signup',
+SigninForm = reduxForm({
+  form: 'signin',
 
   fields: [
     'email',
     'password',
-    'confirmPassword',
   ],
 
-  validate: validateSignup
-})(SignupForm);
+  validate: validateSignin
+})(SigninForm);
 
-export default SignupForm;
+export default SigninForm;

@@ -3,7 +3,6 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {routerActions} from 'react-router-redux';
 import Nav from '../components/nav';
-import Progress from '../components/common/progress';
 
 
 class AppContainer extends Component {
@@ -19,8 +18,7 @@ class AppContainer extends Component {
   render() {
     return (
       <div className="app-container">
-        <Progress color="blue" active={false} value={100} />
-        <Nav />
+        <Nav auth={this.props.auth} />
         {this.props.children}
       </div>
     )
@@ -36,8 +34,7 @@ AppContainer.propTypes = {
 };
 
 export default connect(
-  state => ({
-  }),
+  state => state,
   dispatch => ({
     routerActions: bindActionCreators(routerActions, dispatch)
   }),

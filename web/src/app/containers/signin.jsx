@@ -2,9 +2,9 @@ import React, {Component, PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as AuthActions from '../actions/auth';
-import Signup from '../components/signup';
+import Signin from '../components/signin';
 
-class SignupContainer extends Component {
+class SigninContainer extends Component {
   getChildContext() {
     return {
       actions: this.props.actions,
@@ -29,22 +29,22 @@ class SignupContainer extends Component {
 
   render() {
     return (
-      <div className="signup-container">
-        <Signup />
+      <div className="signin-container">
+        <Signin />
       </div>
     )
   }
 }
 
-SignupContainer.childContextTypes = {
+SigninContainer.childContextTypes = {
   actions: PropTypes.object.isRequired,
 };
 
-SignupContainer.contextTypes = {
+SigninContainer.contextTypes = {
   routerActions: PropTypes.object.isRequired,
 };
 
-SignupContainer.propTypes = {
+SigninContainer.propTypes = {
   auth: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired,
 };
@@ -56,4 +56,4 @@ export default connect(
       ...AuthActions
     }, dispatch)
   }),
-)(SignupContainer);
+)(SigninContainer);
