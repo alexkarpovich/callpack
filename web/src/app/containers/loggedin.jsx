@@ -12,8 +12,6 @@ class LoggedinContainer extends Component {
 }
 
 export default connect(
-  state => ({
-  }),
-  dispatch => ({
-  }),
+  state => state,
+  dispatch => ({}),
 )(LoggedinContainer);

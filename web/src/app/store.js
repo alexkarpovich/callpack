@@ -1,7 +1,5 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux';
-import {reduxReactRouter, browserHistory} from 'react-router';
-import {syncHistory} from 'react-router-redux';
 import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
 import { reducer as formReducer } from 'redux-form';
@@ -15,10 +13,12 @@ const reducers = {
 const logger = createLogger();
 const reducer = combineReducers({...reducers, routing: routerReducer});
 
+export default browserHistory => {
+  const finalCreateStore = compose(applyMiddleware(
+    routerMiddleware(browserHistory),
+    thunk,
+    logger,
+  ))(createStore);
 
-const finalCreateStore = compose(applyMiddleware(
-  thunk,
-  logger,
-))(createStore);
-
-export default finalCreateStore(reducer, {});
+  return finalCreateStore(reducer, {});
+};

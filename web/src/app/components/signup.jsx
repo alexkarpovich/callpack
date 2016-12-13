@@ -5,7 +5,7 @@ class Signup extends Component {
   handleSubmit(data) {
     const {actions} = this.context;
 
-    actions.signup(data);
+    actions.auth.signup(data);
   }
 
   render() {

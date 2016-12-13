@@ -4,8 +4,8 @@ import SigninForm from './signin-form';
 class Signin extends Component {
   handleSubmit(data) {
     const {actions} = this.context;
-console.log(data);
-    actions.signin(data);
+
+    actions.auth.signin(data);
   }
 
   render() {

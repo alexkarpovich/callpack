@@ -1,24 +1,30 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {routerActions} from 'react-router-redux';
-import * as AuthActions from '../actions/auth';
+import initActions from '../utils/init-actions';
 import Auth from '../utils/auth';
 
-class AuthContainer extends Component {
+class InitContainer extends Component {
   constructor(props) {
     super(props);
 
     this.state = {isLoading: true};
   }
 
+  getChildContext() {
+    const {actions} = this.props;
+
+    return {
+      actions: actions
+    };
+  }
+
   componentDidMount() {
-    const {actions, routerActions} = this.props;
+    const {actions} = this.props;
 
     if (Auth.token) {
-      actions.getAuthUser();
+      actions.auth.getAuthUser();
     } else {
-      routerActions.push('/signin');
+      actions.router.push('/signin');
       this.setState({isLoading: false});
     }
   }
@@ -40,18 +46,18 @@ class AuthContainer extends Component {
   }
 }
 
-AuthContainer.propTypes = {
+InitContainer.childContextTypes = {
+  actions: PropTypes.object.isRequired,
+};
+
+InitContainer.propTypes = {
   auth: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired,
-  routerActions: PropTypes.object.isRequired,
 };
 
 export default connect(
   state => state,
   dispatch => ({
-    routerActions: bindActionCreators(routerActions, dispatch),
-    actions: bindActionCreators({
-      ...AuthActions
-    }, dispatch)
+    actions: initActions(dispatch),
   }),
-)(AuthContainer);
+)(InitContainer);

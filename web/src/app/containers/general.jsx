@@ -12,8 +12,6 @@ class GeneralContainer extends Component {
 }
 
 export default connect(
-  state => ({
-  }),
-  dispatch => ({
-  }),
+  state => state,
+  dispatch => ({}),
 )(GeneralContainer);

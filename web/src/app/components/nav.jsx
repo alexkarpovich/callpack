@@ -5,6 +5,7 @@ import {Link} from 'react-router';
 class Nav extends Component {
   render() {
     const {auth} = this.props;
+    const {actions} = this.context;
     const items = [
       {title: 'one', href: '/one'},
       {title: 'two', href: '/two'},
@@ -32,7 +33,7 @@ class Nav extends Component {
           </div>
         ) : (
           <div className="nav-actions">
-            <Link to={'/signout'}>sign out</Link>
+            <Link to={'/'} onClick={() => actions.auth.signout()}>sign out</Link>
             <Link to={'/profile'}>User</Link>
           </div>
         )}
@@ -40,6 +41,10 @@ class Nav extends Component {
     );
   }
 }
+
+Nav.contextTypes = {
+  actions: PropTypes.object.isRequired,
+};
 
 Nav.propTypes = {
   auth: PropTypes.object.isRequired,

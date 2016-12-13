@@ -6,9 +6,9 @@ import {syncHistoryWithStore} from 'react-router-redux'
 import {createHistory} from 'history';
 
 import config from './config';
-import store from './store';
+import configurateStore from './store';
 import AccessControl from './utils/access-control';
-import AuthContainer from './containers/auth';
+import InitContainer from './containers/init';
 import AppContainer from './containers/app';
 import LoggedinContainer from './containers/loggedin';
 import GeneralContainer from './containers/general';
@@ -17,13 +17,14 @@ import SigninContainer from './containers/signin';
 
 
 const browserHistory = useRouterHistory(createHistory)({basename: '/'});
+const store = configurateStore(browserHistory);
 const history = syncHistoryWithStore(browserHistory, store);
 const accessControl = new AccessControl(store);
 
 export default (
   <Provider store={store}>
     <IntlProvider locale="en" {...config.intl}>
-      <AuthContainer>
+      <InitContainer>
         <Router history={history}>
           <Route path="/" component={AppContainer}>
             <IndexRoute component={GeneralContainer} />
@@ -35,7 +36,7 @@ export default (
             </Route>
           </Route>
         </Router>
-      </AuthContainer>
+      </InitContainer>
     </IntlProvider>
   </Provider>
 );
