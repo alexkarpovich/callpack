@@ -28,13 +28,21 @@ class Nav extends Component {
         </div>
         {!auth.isLoggedIn ? (
           <div className="nav-actions">
-            <Link to={'/signin'}>sign in</Link>
-            <Link to={'/signup'}>sign up</Link>
+            <li>
+              <Link to={'/signin'}>sign in</Link>
+            </li>
+            <li>
+              <Link to={'/signup'}>sign up</Link>
+            </li>
           </div>
         ) : (
           <div className="nav-actions">
-            <Link to={'/'} onClick={() => actions.auth.signout()}>sign out</Link>
-            <Link to={'/profile'}>User</Link>
+            <li>
+              <Link to={'/'} onClick={() => actions.auth.signout()}>sign out</Link>
+            </li>
+            <li>
+              <Link to={'/profile'}>User</Link>
+            </li>
           </div>
         )}
       </div>

@@ -2,4 +2,4 @@ const mongoose = require('mongoose');
 const config = require('./config');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(`mongodb://localhost/${config.db.name}`);
+mongoose.connect(config.db.uri, config.db.options);

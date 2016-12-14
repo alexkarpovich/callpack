@@ -8,7 +8,14 @@
     "exposedHeaders": ["Link"]
   },
   "db": {
-    "name": "ratio"
+    "uri": "mongodb://localhost/ratio",
+    "options": {
+      "server": {
+        "socketOptions": {
+          "keepAlive": 1
+        }
+      }
+    }
   },
   "ws": {
     "port": 8181,
