@@ -47,7 +47,7 @@ export function signup(credentials) {
         dispatch({type: AuthConst.SET_AUTH_USER, authUser/*: data.user*/});
       }
     }, error => {
-      dispatch(requestError(error.errors, AuthConst.SIGNUP));
+      dispatch(requestError(error, AuthConst.SIGNUP));
     });
   }
 }

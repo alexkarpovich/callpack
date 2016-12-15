@@ -45,12 +45,10 @@ function buildRequestBody(requestData) {
 function checkResponseStatus(response) {
     if (response.status >= 200 && response.status < 300) {
         return Promise.resolve(response)
-    } else if (response.status == 403) {
+    } else {
         return response.json().then(data => {
             return Promise.reject(data)
         })
-    } else {
-        return Promise.reject(new Error(response.statusText))
     }
 }
 

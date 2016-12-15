@@ -6,7 +6,7 @@ export default keymirror({
   SIGNIN_SUCCESS: null,
   SIGNIN_FAILURE: null,
 
-  SIGNUP_USER: null,
+  SIGNUP: null,
   SIGNUP_REQUEST: null,
   SIGNUP_SUCCESS: null,
   SIGNUP_FAILURE: null,

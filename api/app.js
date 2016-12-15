@@ -6,12 +6,12 @@ const config = require('./config');
 
 const app = express();
 const server = http.createServer(app);
-const port = process.env.PORT || config.port;
+const port = process.env.PORT || config.get('port');
 
 app.use(express.static(__dirname + '/static'));
 app.use(bodyParser.json({limit: config.bodyLimit}));
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(cors(config.cors));
+app.use(cors(config.get('cors')));
 app.use(require('./controllers'));
 
 require('./db');

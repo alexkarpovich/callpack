@@ -2,6 +2,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const AuthError = User.AuthError;
+const ValidationError  = require('mongoose').Error.ValidationError;
 const config = require('../config');
 const redisClient = require('../redis');
 const router = express.Router();
@@ -13,9 +14,12 @@ router.post('/signup', (req, res) => {
   const password = req.body.password;
 
   User.register(email, password, (err, user, next) => {
-    console.log(err);
     if (err) {
-      res.status(400).json(error => err.message);
+      if (err instanceof AuthError || err instanceof ValidationError) {
+        return res.status(400).json({error: err.message});
+      } else {
+        next(err);
+      }
     }
 
     const token = jwt.sign(user.toObject(), config.secret, {
@@ -35,7 +39,11 @@ router.post('/signin', (req, res, next) => {
   User.authorize(email, password, (err, user) => {
     console.log(err);
     if (err) {
-      res.status(400).json(error => err.message);
+      if (err instanceof AuthError || err instanceof ValidationError) {
+        return res.status(400).json({error: err.message});
+      } else {
+        next(err);
+      }
     }
 
     const token = jwt.sign(user.toObject(), config.secret, {

@@ -4,10 +4,10 @@ const config = require('./config');
 module.exports = server => {
     var io = require('socket.io')(server);
 
-    io.listen(config.ws.port);
+    io.listen(config.get('ws:port'));
     io.use(socketioJwt.authorize({
-        secret: config.secret,
-        handshake: config.ws.handshake
+        secret: config.get('secret'),
+        handshake: config.get('ws:handshake')
     }));
 
     io.on('connection', socket => {
