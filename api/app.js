@@ -18,6 +18,10 @@ require('./db');
 require('./ws')(server);
 require('./redis');
 
+app.use(function (err, req, res, next) {
+  res.status(400).json(err);
+});
+
 server.listen(port, () => {
-    console.log('Listening on port ' + port)
+  console.log('Listening on port ' + port)
 });

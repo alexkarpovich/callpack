@@ -6,9 +6,10 @@ const ArticleSchema = new Schema({
   title: String,
   short: String,
   content: String,
-  author: User,
-  createdDate: Date,
-  updatedDate: Date
+  author: User
+}, {
+  timestamps: true
 });
+
 
 module.exports = mongoose.model('article', ArticleSchema);
