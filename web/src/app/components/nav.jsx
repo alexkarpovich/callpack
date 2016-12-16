@@ -7,7 +7,7 @@ class Nav extends Component {
     const {auth} = this.props;
     const {actions} = this.context;
     const items = [
-      {title: 'one', href: '/one'},
+      {title: 'article', href: '/article'},
       {title: 'two', href: '/two'},
       {title: 'three', href: '/three'},
     ];

@@ -14,6 +14,8 @@ import LoggedinContainer from './containers/loggedin';
 import GeneralContainer from './containers/general';
 import SignupContainer from './containers/signup';
 import SigninContainer from './containers/signin';
+import ArticleListContainer from './containers/loggedin/article-list';
+import ArticleCreateContainer from './containers/loggedin/article-create';
 
 
 const browserHistory = useRouterHistory(createHistory)({basename: '/'});
@@ -28,11 +30,14 @@ export default (
         <Router history={history}>
           <Route path="/" component={AppContainer}>
             <IndexRoute component={GeneralContainer} />
-            <Route path="/signup" component={SignupContainer} />
-            <Route path="/signin" component={SigninContainer} />
+            <Route path="signup" component={SignupContainer} />
+            <Route path="signin" component={SigninContainer} />
 
-            <Route path="/" component={LoggedinContainer} onEnter={accessControl.isLoggedIn}>
-
+            <Route onEnter={accessControl.isLoggedIn}>
+              <Route path="article" component={LoggedinContainer}>
+                <IndexRoute component={ArticleListContainer} />
+                <Route path="create" component={ArticleCreateContainer} />
+              </Route>
             </Route>
           </Route>
         </Router>
