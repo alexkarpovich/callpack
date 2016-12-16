@@ -1,5 +1,5 @@
 const socketioJwt = require('socketio-jwt');
-const config = require('./config');
+const config = require('../config');
 
 module.exports = server => {
     var io = require('socket.io')(server);

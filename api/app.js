@@ -12,11 +12,11 @@ app.use(express.static(__dirname + '/static'));
 app.use(bodyParser.json({limit: config.bodyLimit}));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors(config.get('cors')));
-app.use(require('./controllers'));
+app.use(require('./routes'));
 
-require('./db');
-require('./ws')(server);
-require('./redis');
+require('./libs/db');
+require('./libs/ws')(server);
+require('./libs/redis');
 
 app.use(function (err, req, res, next) {
   res.status(400).json(err);
