@@ -11,13 +11,17 @@ class ArticleList extends Component {
         <Link to={'/article/create'}>+ article</Link>
         <div>
         {
-          data && data.map((article, i) => <li key={i}>{article.title}</li>)
+          data.map((article, i) => <li key={i}>{article.title}</li>)
         }
         </div>
       </div>
     );
   }
 }
+
+ArticleList.defaultProps = {
+  data: [],
+};
 
 ArticleList.contextTypes = {
   actions: PropTypes.object.isRequired,

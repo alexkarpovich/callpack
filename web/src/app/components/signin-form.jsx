@@ -15,7 +15,7 @@ class SigninForm extends Component {
         </div>
         <div>
           <label>Password</label>
-          <input type="text" className="form-input" {...password} />
+          <input type="password" className="form-input" {...password} />
           {password.error && password.touched && <div>{password.error}</div>}
         </div>
 

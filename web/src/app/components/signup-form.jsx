@@ -15,12 +15,12 @@ class SignupForm extends Component {
         </div>
         <div>
           <label>Password</label>
-          <input type="text" className="form-input" {...password} />
+          <input type="password" className="form-input" {...password} />
           {password.error && password.touched && <div>{password.error}</div>}
         </div>
         <div>
           <label>Confirm Password</label>
-          <input type="text" className="form-input" {...confirmPassword}/>
+          <input type="password" className="form-input" {...confirmPassword}/>
           {confirmPassword.error && confirmPassword.touched && <div>{confirmPassword.error}</div>}
         </div>
 
