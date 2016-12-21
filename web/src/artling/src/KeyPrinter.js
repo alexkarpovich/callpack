@@ -13,6 +13,10 @@ KeyPrinter.prototype.enterDocument = function(ctx) {
   console.log('document', ctx);
 };
 
+KeyPrinter.prototype.enterSection = function(ctx) {
+  console.log('document', ctx);
+};
+
 KeyPrinter.prototype.enterHeading = function(ctx) {
   console.log('heading', ctx);
 };

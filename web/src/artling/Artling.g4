@@ -1,34 +1,38 @@
 grammar Artling;
 
 options {
-	language = JavaScript;
+    language = JavaScript;
 }
 
-AT : '@';
+AT: '@';
 STAR: '*';
+SPACE: ' ';
+TOC: 'toc' | 'table of content';
+NEWLINE: '\r'? '\n' | '\r';
+NOT_NEWLINE_CHAR: ~[\r\n];
+HEADING_SIZE: [1-6];
 
-ANY: .;
-NEWLINE: '\r'? '\n';
-SPACETAB: [ \t];
-HEADING_SIZE: [0-6];
+document
+    : section*;
 
-document:
-	( heading
-	| toc
-	| NEWLINE+
-	)*;
+section
+    : toc
+    | heading
+    | NEWLINE
+    ;
+
+toc: STAR TOC? STAR NEWLINE
+    ;
 
 heading
-	: headingMark ' ' headingText
-	;
-
-headingMark
-    : AT HEADING_SIZE?
+    : headingKey headingValue NEWLINE
     ;
 
-headingText
-    : ANY+ (NEWLINE | EOF)
+headingKey
+    : AT HEADING_SIZE? SPACE
     ;
 
-toc: STAR 'toc' STAR;
+headingValue
+    : NOT_NEWLINE_CHAR+?
+    ;
 

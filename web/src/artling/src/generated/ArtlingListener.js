@@ -20,30 +20,12 @@ ArtlingListener.prototype.exitDocument = function(ctx) {
 };
 
 
-// Enter a parse tree produced by ArtlingParser#heading.
-ArtlingListener.prototype.enterHeading = function(ctx) {
+// Enter a parse tree produced by ArtlingParser#section.
+ArtlingListener.prototype.enterSection = function(ctx) {
 };
 
-// Exit a parse tree produced by ArtlingParser#heading.
-ArtlingListener.prototype.exitHeading = function(ctx) {
-};
-
-
-// Enter a parse tree produced by ArtlingParser#headingMark.
-ArtlingListener.prototype.enterHeadingMark = function(ctx) {
-};
-
-// Exit a parse tree produced by ArtlingParser#headingMark.
-ArtlingListener.prototype.exitHeadingMark = function(ctx) {
-};
-
-
-// Enter a parse tree produced by ArtlingParser#headingText.
-ArtlingListener.prototype.enterHeadingText = function(ctx) {
-};
-
-// Exit a parse tree produced by ArtlingParser#headingText.
-ArtlingListener.prototype.exitHeadingText = function(ctx) {
+// Exit a parse tree produced by ArtlingParser#section.
+ArtlingListener.prototype.exitSection = function(ctx) {
 };
 
 
@@ -53,6 +35,33 @@ ArtlingListener.prototype.enterToc = function(ctx) {
 
 // Exit a parse tree produced by ArtlingParser#toc.
 ArtlingListener.prototype.exitToc = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ArtlingParser#heading.
+ArtlingListener.prototype.enterHeading = function(ctx) {
+};
+
+// Exit a parse tree produced by ArtlingParser#heading.
+ArtlingListener.prototype.exitHeading = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ArtlingParser#headingKey.
+ArtlingListener.prototype.enterHeadingKey = function(ctx) {
+};
+
+// Exit a parse tree produced by ArtlingParser#headingKey.
+ArtlingListener.prototype.exitHeadingKey = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ArtlingParser#headingValue.
+ArtlingListener.prototype.enterHeadingValue = function(ctx) {
+};
+
+// Exit a parse tree produced by ArtlingParser#headingValue.
+ArtlingListener.prototype.exitHeadingValue = function(ctx) {
 };
 
 
