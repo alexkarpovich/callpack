@@ -13,7 +13,7 @@ router.use((req, res, next) => {
     if (token) {
       jwt.verify(token, config.get('secret'), (err, decoded) => {
         if (err) {
-          next(err);
+          return next(err);
         }
 
         User.findById(decoded._id)

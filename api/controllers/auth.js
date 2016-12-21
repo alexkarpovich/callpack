@@ -10,7 +10,7 @@ const redisClient = require('../libs/redis');
 
 class AuthController {
 
-  static signupAction(req, res) {
+  static signupAction(req, res, next) {
     const {email, password} = req.body;
 
     User.register(email, password, (err, user, next) => {
@@ -32,9 +32,8 @@ class AuthController {
     });
   }
 
-  static signinAction(req, res) {
+  static signinAction(req, res, next) {
     const {email, password} = req.body;
-    console.log(req.user);
 
     User.authorize(email, password, (err, user) => {
       if (err) {
