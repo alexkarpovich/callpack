@@ -30,7 +30,8 @@ module.exports = {
         o: 'src/generated/', //output directory
         grammarLevel: {
           language: 'JavaScript' //generated code language
-        }
+        },
+        flags: ['visitor', 'listener']
       }
     })
   ]

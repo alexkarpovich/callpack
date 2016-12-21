@@ -5,14 +5,30 @@ options {
 }
 
 AT : '@';
-INT :	'0'..'9'+;
-WS : [ \t\r\n]+ -> skip ;
-LINE: [^\r\n]+;
+STAR: '*';
 
-content:
-    ( heading
-    | WS
-    )
-;
+ANY: .;
+NEWLINE: '\r'? '\n';
+SPACETAB: [ \t];
+HEADING_SIZE: [0-6];
 
-heading: AT INT? LINE;
+document:
+	( heading
+	| toc
+	| NEWLINE+
+	)*;
+
+heading
+	: headingMark ' ' headingText
+	;
+
+headingMark
+    : AT HEADING_SIZE?
+    ;
+
+headingText
+    : ANY+ (NEWLINE | EOF)
+    ;
+
+toc: STAR 'toc' STAR;
+

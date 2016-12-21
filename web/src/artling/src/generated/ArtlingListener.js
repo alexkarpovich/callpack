@@ -1,4 +1,4 @@
-// Generated from Artling.g4 by ANTLR 4.5.2
+// Generated from /home/aliaksandr/dev/ratio/web/src/artling/Artling.g4 by ANTLR 4.6
 // jshint ignore: start
 var antlr4 = require('antlr4/index');
 
@@ -11,12 +11,12 @@ function ArtlingListener() {
 ArtlingListener.prototype = Object.create(antlr4.tree.ParseTreeListener.prototype);
 ArtlingListener.prototype.constructor = ArtlingListener;
 
-// Enter a parse tree produced by ArtlingParser#content.
-ArtlingListener.prototype.enterContent = function(ctx) {
+// Enter a parse tree produced by ArtlingParser#document.
+ArtlingListener.prototype.enterDocument = function(ctx) {
 };
 
-// Exit a parse tree produced by ArtlingParser#content.
-ArtlingListener.prototype.exitContent = function(ctx) {
+// Exit a parse tree produced by ArtlingParser#document.
+ArtlingListener.prototype.exitDocument = function(ctx) {
 };
 
 
@@ -26,6 +26,33 @@ ArtlingListener.prototype.enterHeading = function(ctx) {
 
 // Exit a parse tree produced by ArtlingParser#heading.
 ArtlingListener.prototype.exitHeading = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ArtlingParser#headingMark.
+ArtlingListener.prototype.enterHeadingMark = function(ctx) {
+};
+
+// Exit a parse tree produced by ArtlingParser#headingMark.
+ArtlingListener.prototype.exitHeadingMark = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ArtlingParser#headingText.
+ArtlingListener.prototype.enterHeadingText = function(ctx) {
+};
+
+// Exit a parse tree produced by ArtlingParser#headingText.
+ArtlingListener.prototype.exitHeadingText = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ArtlingParser#toc.
+ArtlingListener.prototype.enterToc = function(ctx) {
+};
+
+// Exit a parse tree produced by ArtlingParser#toc.
+ArtlingListener.prototype.exitToc = function(ctx) {
 };
 
 
