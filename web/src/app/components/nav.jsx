@@ -8,7 +8,7 @@ class Nav extends Component {
     const {actions} = this.context;
     const items = [
       {title: 'article', href: '/article'},
-      {title: 'two', href: '/two'},
+      {title: 'artling', href: '/artling'},
       {title: 'three', href: '/three'},
     ];
 

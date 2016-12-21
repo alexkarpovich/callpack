@@ -14,6 +14,7 @@ import LoggedinContainer from './containers/loggedin';
 import GeneralContainer from './containers/general';
 import SignupContainer from './containers/signup';
 import SigninContainer from './containers/signin';
+import ArtlingContainer from './containers/artling';
 import ArticleListContainer from './containers/loggedin/article-list';
 import ArticleCreateContainer from './containers/loggedin/article-create';
 
@@ -32,9 +33,10 @@ export default (
             <IndexRoute component={GeneralContainer} />
             <Route path="signup" component={SignupContainer} />
             <Route path="signin" component={SigninContainer} />
+            <Route path="artling" component={ArtlingContainer} />
 
-            <Route onEnter={accessControl.isLoggedIn}>
-              <Route path="article" component={LoggedinContainer}>
+            <Route path="/" onEnter={accessControl.isLoggedIn}>
+              <Route path="article">
                 <IndexRoute component={ArticleListContainer} />
                 <Route path="create" component={ArticleCreateContainer} />
               </Route>
