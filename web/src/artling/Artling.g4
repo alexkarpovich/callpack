@@ -8,7 +8,7 @@ AT: '@';
 STAR: '*';
 SPACE: ' ';
 TOC: 'toc' | 'table of content';
-NEWLINE: '\r'? '\n' | '\r';
+NEWLINE: '\r'? '\n';
 NOT_NEWLINE_CHAR: ~[\r\n];
 HEADING_SIZE: [1-6];
 
@@ -21,7 +21,7 @@ section
     | NEWLINE
     ;
 
-toc: STAR TOC? STAR NEWLINE
+toc: STAR TOC STAR NEWLINE
     ;
 
 heading
@@ -33,6 +33,6 @@ headingKey
     ;
 
 headingValue
-    : NOT_NEWLINE_CHAR+?
+    : .*?
     ;
 
