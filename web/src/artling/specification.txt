@@ -20,5 +20,7 @@ Numerical list:
     + Numerical item 2
     + Numerical item 3
 
-    Text content which supports tabs as start of a paragraph and doesn't newline symbol
+    Text content which supports tabs as start of a paragraph and doesn't/ newline symbol
 so this is a continuation of the string. Hello little picture.
+    Complex text will look as following that contains styled features as bold text or italic
+or nested styling features.
