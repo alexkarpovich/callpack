@@ -11,21 +11,43 @@ document
 section
     : heading
     | generator
-    | list
+    | bulletedList
     | paragraph
-    | NL_OR_EOF+
     ;
 
-generator
-    : OPEN_GEN GEN_ID CLOSE_GEN NL_OR_EOF
+generator returns[genId]
+    : GEN (NL | NL_OR_EOF | EOF) {$genId = $GEN.text;}
     ;
 
-heading: HEADING_LINE NL_OR_EOF;
+heading returns[headingText]
+    : HEADING_LINE (NL | NL_OR_EOF | EOF) {$headingText = $HEADING_LINE.text;}
+    ;
 
-list: (listItem NEWLINE)* listItem NL_OR_EOR;
+bulletedList returns[list]
+    : (ul | ol) (NL | NL_OR_EOF | EOF)
+    ;
 
-listItem
-    : LIST_ITEM;
+ul returns[ulist]
+@init {$ulist = [];}
+    : (uli=ulItem NL {$ulist.push($uli.text);})* uli=ulItem {$ulist.push($uli.text);}
+    ;
 
-paragraph
-    : PARAGRAPH_OPEN NEWLINE  NEWLINE PARAGRAPH_CLOSE NL_OR_EOR;
+ulItem returns[ulItemText]
+    : UL_ITEM {$ulItemText = $UL_ITEM.text;}
+    ;
+
+ol returns[olist]
+@init {$olist = [];}
+    : (oli=olItem NL {$olist.push($oli.text);})* oli=olItem {$olist.push($oli.text);};
+
+olItem returns[olItemText]
+    : OL_ITEM {$olItemText = $OL_ITEM.text;}
+    ;
+
+paragraph returns[rows]
+@init {$rows = [];}
+    : (rowText=row {$rows.push($rowText.text);})+;
+
+row returns[rowText]
+    : PARA_LINE (NL | NL_OR_EOF | EOF) {$rowText = $PARA_LINE.text;}
+    ;

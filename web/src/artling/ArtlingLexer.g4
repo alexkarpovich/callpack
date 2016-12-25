@@ -1,21 +1,47 @@
 lexer grammar ArtlingLexer;
 
+NL: '\r'? '\n';
 TAB: '\t';
-NEWLINE: '\r'? '\n';
 STAR: '*';
 SPACE: ' ';
-OPEN_GEN: '((';
-CLOSE_GEN: '))';
+MINUS: '-';
+PLUS: '+';
+ULI_START: '- ';
+OLI_START: '+ ';
+OPEN_GEN: '(( ';
+CLOSE_GEN: ' ))';
 GEN_ID: 'toc' | 'echo';
 HEADING_SIZE: [1-6];
-NL_OR_EOF: NEWLINE | EOF;
+fragment NEWLINE: '\r'? '\n';
+fragment TEXT_LINE: ~[\r\n]+;
 
-HEADING_LINE: ('*'+ | '*' HEADING_SIZE) ' ' ~[\r\n]+;
+H1_START: '* ';
+H2_START: '** ';
+H3_START: '*** ';
+H4_START: '**** ';
+H5_START: '***** ';
+H6_START: '****** ';
+fragment HEADING_START
+    : H1_START
+    | H2_START
+    | H3_START
+    | H4_START
+    | H5_START
+    | H6_START
+    | '*' HEADING_SIZE
+    ;
 
-PARAGRAPH_OPEN: '{';
-PARAGRAPH_CLOSE: '}';
+NL_OR_EOF: NEWLINE+;
+HEADING_LINE
+    : HEADING_START TEXT_LINE;
 
-LIST_ITEM: '-' ' ' ~[\r\n]+;
+GEN: OPEN_GEN GEN_ID CLOSE_GEN;
 
+fragment UL_ITEM_START: '- ';
+fragment OL_ITEM_START: '+ ';
 
+UL_ITEM: UL_ITEM_START TEXT_LINE;
+OL_ITEM: OL_ITEM_START TEXT_LINE;
 
+PARA_LINE
+    : TEXT_LINE;

@@ -1,12 +1,12 @@
-import {ArtlingListener} from './generated/ArtlingListener';
+import {ArtlingParserListener} from './generated/ArtlingParserListener';
 
 const KeyPrinter = function() {
-  ArtlingListener.call(this); // inherit default listener
+  ArtlingParserListener.call(this); // inherit default listener
   return this;
  };
 
 // inherit default listener
-KeyPrinter.prototype = Object.create(ArtlingListener.prototype);
+KeyPrinter.prototype = Object.create(ArtlingParserListener.prototype);
 KeyPrinter.prototype.constructor = KeyPrinter;
 
 KeyPrinter.prototype.enterDocument = function(ctx) {
@@ -23,6 +23,10 @@ KeyPrinter.prototype.enterHeading = function(ctx) {
 
 KeyPrinter.prototype.enterToc = function(ctx) {
   console.log('toc', ctx);
+};
+
+KeyPrinter.prototype.exitOl = function(ctx) {
+  console.log('Ol', ctx.olist);
 };
 
 export default KeyPrinter;
