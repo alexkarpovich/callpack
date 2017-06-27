@@ -2,9 +2,10 @@ base:
   '*':
     - requirements
     - users
-    #- ssh
+    - ssh
     - logging
     - nginx
     - node
+    - meteor
     - mongodb
     - redis

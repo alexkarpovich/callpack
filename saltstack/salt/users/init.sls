@@ -22,6 +22,7 @@ users_{{name}}_user:
   user.present:
     - name: {{ name }}
     - home: {{ home }}
+    - shell: {{ user.get('shell') }}
     - uid: {{ user['uid'] }}
     - password: '{{ user['password'] }}'
     - fullname: {{ user['fullname'] }}

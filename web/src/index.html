@@ -1,32 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-
-  <title>Ratio</title>
-  <meta name="description" content="Ratio" />
-  <meta name="keywords" content="" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no" />
-  <base href="/" />
-
-  <link rel="shortcut icon" href="#" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-
-  <!-- CSS: injected by webpack here -->
-</head>
-
-<body class="splash-loading">
-  <div id="app"></div>
-
-  <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Object.assign,URL,Intl.~locale.en"></script>
-
-  <% if (webpackConfig.metadata.ENV === 'development') { %>
-    <!-- Webpack Dev Server reload -->
-    <script src="/webpack-dev-server.js"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <meta name="description" content="<%= htmlWebpackPlugin.options.title %>">
+  <!-- base url -->
+  <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
+  <% if (webpackConfig.htmlElements.headTags) { %>
+  <!-- Configured Head Tags  -->
+  <%= webpackConfig.htmlElements.headTags %>
   <% } %>
 
-  <!-- JS: injected by webpack here -->
 
+  <%= htmlWebpackPlugin.files.webpackManifest %>
+
+  <% if (htmlWebpackPlugin.options.metadata.isDevServer && htmlWebpackPlugin.options.metadata.HMR !== true) { %>
+  <!-- Webpack Dev Server reload -->
+  <script src="/webpack-dev-server.js"></script>
+  <% } %>
+
+ <!-- CSS will be injected by webpack here -->
+  <!-- Preload link tags will be injected by webpack here -->
+
+</head>
+
+<body>
+
+  <app>
+    Loading...
+  </app>
+
+  <!-- Scripts will be injected by webpack here -->
 </body>
 </html>
