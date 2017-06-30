@@ -6,6 +6,5 @@ base:
     - logging
     - nginx
     - node
-    - meteor
     - mongodb
     - redis

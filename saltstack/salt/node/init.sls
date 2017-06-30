@@ -9,6 +9,11 @@ include:
 {%- endif %}
   - .config
 
+node_recheck:
+    cmd.run:
+        - name: >-
+            apt-get install -f
+
 npm:
   pkg.installed:
     - require:

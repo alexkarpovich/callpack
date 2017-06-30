@@ -9,16 +9,16 @@ import { PedigreeComponent } from './pedigree.component';
 console.log('`Pedigree` component loaded asynchronously');
 
 @NgModule({
-    declarations: [
-        PedigreeComponent, 
-    ],
-    imports: [
-        CommonModule,
-        FormsModule,
-        RouterModule.forChild(routes),
-    ],
+  declarations: [
+    PedigreeComponent, 
+  ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule.forChild(routes),
+  ],
 })
 export class PedigreeModule {
-    public static routes = routes;
+  public static routes = routes;
 }
 
