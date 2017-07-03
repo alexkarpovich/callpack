@@ -1,41 +1,92 @@
-[
-  {
-    "name": "Top Level",
-    "parent": "null",
-    "value": 10,
-    "type": "black",
-    "level": "red",
-    "children": [
-      {
-        "name": "Level 2: A",
-        "parent": "Top Level",
-        "value": 15,
-        "type": "grey",
-        "level": "red",
-        "children": [
-          {
-            "name": "Son of A",
-            "parent": "Level 2: A",
-            "value": 5,
-            "type": "steelblue",
-            "level": "orange"
-          },
-          {
-            "name": "Daughter of A",
-            "parent": "Level 2: A",
-            "value": 8,
-            "type": "steelblue",
-            "level": "red"
-          }
-        ]
-      },
-      {
-        "name": "Level 2: B",
-        "parent": "Top Level",
-        "value": 10,
-        "type": "grey",
-        "level": "green"
-      }
-    ]
-  }
-]
+{
+  "nodes": [
+    {"id": 1, "name": "Дробыш Иван", "born": "1880-06-06"},
+    {"id": 2, "name": "Дробыш Мария", "born": "1880-06-06"},
+    {"id": 3, "name": "Мармыш Алексей", "born": "1880-06-06"},
+    {"id": 4, "name": "Горбачевская Феодора", "born": "1880-06-06"},
+    {"id": 5, "name": "Карпович Яков", "born": "1880-06-06"},
+    {"id": 6, "name": "Жена Якова", "born": "1880-06-06"},
+    {"id": 7, "name": "Карпович Павел", "born": "1880-06-06"},
+    {"id": 8, "name": "Карпович София", "born": "1880-06-06"},
+    {"id": 9, "name": "Дробыш Антон Иванович", "born": "1909-06-06"},
+    {"id": 10, "name": "Дробыш(Мармыш) Соломия Алексеевна", "born": "1911-06-06"},
+    {"id": 11, "name": "Карпович Петр Яковлевич", "born": "1911-06-06"},
+    {"id": 12, "name": "Карпович Мария Павловна", "born": "1911-06-06"},
+    {"id": 13, "name": "Дробыш Евгения Антоновна", "born": "1937-10-02"},
+    {"id": 14, "name": "Дробыш Мария Антоновна", "born": "1937-10-02"},
+    {"id": 15, "name": "Дробыш Зоя Антоновна", "born": "1937-10-02"},
+    {"id": 16, "name": "Дробыш Зинаида Антоновна", "born": "1937-10-02"},
+    {"id": 17, "name": "Дробыш Александа Антоновна", "born": "1937-10-02"},
+    {"id": 18, "name": "Дробыш Анна Антоновна", "born": "1937-10-02"},
+    {"id": 19, "name": "Карпович Михаил Петрович", "born": "1936-06-06"},
+    {"id": 20, "name": "Карпович Юрий Михайлович", "born": "1963-08-04"},
+    {"id": 21, "name": "Карпович Василий Михайлович", "born": "1963-08-04"},
+    {"id": 22, "name": "Карпович Елена Михайловна", "born": "1963-08-04"},
+    {"id": 23, "name": "Шляхтун Иосиф", "born": "1963-08-04"},
+    {"id": 24, "name": "Шляхтун Ольга", "born": "1963-08-04"},
+    {"id": 25, "name": "Осовик Гараим", "born": "1963-08-04"},
+    {"id": 26, "name": "Осовик Михаил", "born": "1963-08-04"},
+    {"id": 27, "name": "Осовик Агафья", "born": "1963-08-04"},
+    {"id": 28, "name": "Ковалевский Александр Михайлович", "born": "1963-08-04"},
+    {"id": 29, "name": "Ковалевская Мария Степановна", "born": "1963-08-04"},
+    {"id": 30, "name": "Шляхтун Викентий Иосифович", "born": "1923-06-04"},
+    {"id": 31, "name": "Шляхтун (Осовик) Надежда Михайловна", "born": "1923-09-04"},
+    {"id": 32, "name": "Ковалевский Самсон Александрович", "born": "1936-08-06"},
+    {"id": 33, "name": "Ковалевская (Шляхтун) Анна Викентьевна", "born": "1942-08-09"},
+    {"id": 34, "name": "Хаменко (Ковалевская) Томара Самсоновна", "born": "1942-08-09"},
+    {"id": 35, "name": "Ковальчук (Ковалевская) Наталья Самсоновна", "born": "1942-08-09"},
+    {"id": 36, "name": "Карпович (Ковалевская) Светлана Самсоновна", "born": "1968-12-01"},
+    {"id": 37, "name": "Карпович Радион Юрьевич", "born": "1990-05-26"},
+    {"id": 38, "name": "Карпович Александр Юрьевич", "born": "1994-01-27"}
+
+  ],
+  "links": [
+    {"source": 1, "target": 9, "value": 1},
+    {"source": 2, "target": 9, "value": 1},
+    {"source": 3, "target": 10, "value": 1},
+    {"source": 4, "target": 10, "value": 1},
+    {"source": 5, "target": 11, "value": 1},
+    {"source": 6, "target": 11, "value": 1},
+    {"source": 7, "target": 12, "value": 1},
+    {"source": 8, "target": 12, "value": 1},
+    {"source": 9, "target": 13, "value": 1},
+    {"source": 9, "target": 14, "value": 1},
+    {"source": 9, "target": 15, "value": 1},
+    {"source": 9, "target": 16, "value": 1},
+    {"source": 9, "target": 17, "value": 1},
+    {"source": 9, "target": 18, "value": 1},
+    {"source": 10, "target": 13, "value": 1},
+    {"source": 10, "target": 14, "value": 1},
+    {"source": 10, "target": 15, "value": 1},
+    {"source": 10, "target": 16, "value": 1},
+    {"source": 10, "target": 17, "value": 1},
+    {"source": 10, "target": 18, "value": 1},
+    {"source": 11, "target": 19, "value": 1},
+    {"source": 12, "target": 19, "value": 1},
+    {"source": 13, "target": 20, "value": 1},
+    {"source": 13, "target": 21, "value": 1},
+    {"source": 13, "target": 22, "value": 1},
+    {"source": 19, "target": 20, "value": 1},
+    {"source": 19, "target": 21, "value": 1},
+    {"source": 19, "target": 22, "value": 1},
+    {"source": 23, "target": 30, "value": 1},
+    {"source": 24, "target": 30, "value": 1},
+    {"source": 25, "target": 27, "value": 1},
+    {"source": 26, "target": 31, "value": 1},
+    {"source": 27, "target": 31, "value": 1},
+    {"source": 28, "target": 32, "value": 1},
+    {"source": 29, "target": 32, "value": 1},
+    {"source": 30, "target": 33, "value": 1},
+    {"source": 31, "target": 33, "value": 1},
+    {"source": 32, "target": 34, "value": 1},
+    {"source": 32, "target": 35, "value": 1},
+    {"source": 32, "target": 36, "value": 1},
+    {"source": 33, "target": 34, "value": 1},
+    {"source": 33, "target": 35, "value": 1},
+    {"source": 33, "target": 36, "value": 1},
+    {"source": 20, "target": 37, "value": 1},
+    {"source": 20, "target": 38, "value": 1},
+    {"source": 36, "target": 37, "value": 1},
+    {"source": 36, "target": 38, "value": 1}
+  ]
+}

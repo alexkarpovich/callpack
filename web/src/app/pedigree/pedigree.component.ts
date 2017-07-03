@@ -12,8 +12,11 @@ import data from './data.json';
 @Component({
   selector: 'pedigree',
   template: `
-    <svg width="640" height="480" #chart></svg>
+    <svg width="960" height="500" #chart></svg>
   `,
+  styleUrls: [
+    './pedigree.component.css', 
+  ],
   encapsulation: ViewEncapsulation.None
 })
 export class PedigreeComponent implements OnInit, OnChanges {
@@ -24,6 +27,7 @@ export class PedigreeComponent implements OnInit, OnChanges {
   margin: any = { top: 20, right: 120, bottom: 20, left: 120 };
   width: number = 960 - this.margin.right - this.margin.left;
   height: number = 500 - this.margin.top - this.margin.bottom;
+  duration: number = 750;
   i: number = 0; 
 
   public ngOnInit() {
@@ -35,63 +39,101 @@ export class PedigreeComponent implements OnInit, OnChanges {
     console.log('ngOnChanges')  
   }
 
-  diagonal(d) {
-    return "M" + d.source.y + "," + d.source.x
-      + "C" + (d.source.y + d.target.y) / 2 + "," + d.source.x
-      + " " + (d.source.y + d.target.y) / 2 + "," + d.target.x
-      + " " + d.target.y + "," + d.target.x;
-  }
-
   createChart() {
     let chart = this.chartContainer.nativeElement; 
-
     this.svg = d3.select(chart); 
+    let color = d3.scaleOrdinal(d3.schemeCategory20);
+    let graph = data;
+    let nodes = graph.nodes,
+      nodeById = d3.map(nodes, d => { return d.id; }),
+      links = graph.links,
+      bilinks = [];
 
-    this.tree = d3.tree().size([this.height, this.width]); 
+    let minDate = d3.min(nodes, d => new Date(d.born));
+    let maxDate = new Date();
+    let y = d3.scaleTime()
+      .domain([minDate, maxDate])
+      .range([this.margin.top, this.height]);
+
+    let yAxis = d3.axisLeft(y)
+      .ticks(d3.timeYear, 5)
+      .tickFormat(d3.timeFormat("%Y"));
+
     this.svg.append('g')
-      .attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')');
+      .attr('class', 'axis')
+      .attr('transform', 'translate(50, 0)')
+      .call(yAxis);
 
-    this.root = d3.hierarchy(data);
+    let simulation = d3.forceSimulation()
+      .force("link", d3.forceLink().distance(80).strength(0.1))
+      .force("charge", d3.forceManyBody().strength([-30]))
+      .force("center", d3.forceCenter(this.width / 2, this.height / 2));
 
-    console.log(this.tree, this.root);
+    links.forEach(function(link) {
+      let s = link.source = nodeById.get(link.source),
+        t = link.target = nodeById.get(link.target),
+        i = {}; // intermediate node
+      nodes.push(i);
+      links.push({source: s, target: i}, {source: i, target: t});
+      bilinks.push([s, i, t]);
+    });
 
-    this.update(this.root);
+    let link = this.svg.selectAll(".link")
+      .data(bilinks)
+      .enter().append("path")
+        .attr("class", "link");
+
+    let node = this.svg.selectAll(".node")
+      .data(nodes.filter(d => { return d.id; }))
+      .enter().append("circle")
+        .attr("class", "node")
+        .attr("r", 5)
+        .attr("fill", d => { return color(d.group); })
+        .call(d3.drag()
+          .on("start", dragstarted)
+          .on("drag", dragged)
+          .on("end", dragended));
+
+    node.append("title")
+      .text(d => { return d.id; });
+
+    simulation
+      .nodes(nodes)
+      .on("tick", ticked);
+
+    simulation.force("link")
+      .links(links);
+
+    function ticked() {
+      link.attr("d", positionLink);
+      node.attr("transform", positionNode);
+    }
+
+    function positionLink(d) {
+        return "M" + d[0].x + "," + y(new Date(d[0].born))
+          + "C" + (d[0].x + d[2].x) / 2 + "," + y(new Date(d[0].born))
+          + " " + (d[0].x + d[2].x) / 2 + "," + y(new Date(d[2].born))
+          + " " + d[2].x + "," + y(new Date(d[2].born));
+    }
+
+    function positionNode(d) {
+        return "translate(" + d.x + "," + y(new Date(d.born)) + ")";
+    }
+
+    function dragstarted(d) {
+        if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x, d.fy = d.y;
+    }
+
+    function dragged(d) {
+        d.fx = d3.event.x, d.fy = d3.event.y;
+    }
+
+    function dragended(d) {
+        if (!d3.event.active) simulation.alphaTarget(0);
+        d.fx = null, d.fy = null;
+    }
   }
 
-  update(source) {
-  
-    let nodes = this.tree.nodes(this.root).reverse(),
-      links = this.tree.links(nodes);
-
-    nodes.forEach(d => { d.y = d.depth * 180; });
-
-    let node = this.svg.selectAll('g.node')
-      .data(nodes, d => d.id || (d.id = ++this.i));
-
-    let nodeEnter = node.enter().append('g')
-      .attr('class', 'node')
-      .attr('transform', d => 'translate(' + d.y + ',' + d.x + ')');
-
-    nodeEnter.append('circle')
-      .attr('r', d => d.value)
-      .style('stroke', d => d.type)
-      .style('fill', d => d.level);
-
-    nodeEnter.append('text')
-      .attr('x', d => d.children || d._children ? (d.value + 4) * -1 : d.value + 4)
-      .attr('dy', '.35em')
-      .attr('text-anchor', d => d.children || d._children ? 'end' : 'start')
-      .text(d => d.name)
-      .style('fill-opacity', 1);
-
-    let link = this.svg.selectAll('path.link')
-      .data(links, d => d.target.id);
-
-    link.enter().insert('path', 'g')
-      .attr('class', 'link')
-      .style('stroke', d => d.target.level)
-      .attr('d', this.diagonal);
-    
-  }
 }
 
