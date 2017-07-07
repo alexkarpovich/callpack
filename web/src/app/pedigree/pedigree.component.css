@@ -15,3 +15,8 @@
   stroke: #ccc;
   stroke-width: 2px;
 }
+
+.link-hidden {
+  fill: none;
+  stroke: none;
+}

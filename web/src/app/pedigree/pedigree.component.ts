@@ -68,7 +68,7 @@ export class PedigreeComponent implements OnInit, OnChanges {
       .range([this.margin.top, this.height]);
 
     let yAxis = d3.axisLeft(y)
-      .ticks(d3.timeYear, 5)
+      .ticks(50)
       .tickFormat(d3.timeFormat("%Y"));
 
     let gY = this.svg.append('g')
@@ -78,8 +78,8 @@ export class PedigreeComponent implements OnInit, OnChanges {
     gY.call(yAxis);
 
     let simulation = d3.forceSimulation()
-      .force("link", d3.forceLink().distance(80).strength(0.5))
-      .force("charge", d3.forceManyBody().strength([-400]))
+      .force("link", d3.forceLink().distance(80).strength(0.8))
+      .force("charge", d3.forceManyBody(80).strength([-1400]))
       .force("center", d3.forceCenter(this.width / 2, this.height / 2));
 
     links.forEach(function(link) {
@@ -94,7 +94,7 @@ export class PedigreeComponent implements OnInit, OnChanges {
     let link = g.selectAll(".link")
       .data(bilinks)
       .enter().append("path")
-        .attr("class", "link");
+      .attr("class", 'link');
 
     let node = g.selectAll(".node")
       .data(nodes.filter(d => { return d.id; }))

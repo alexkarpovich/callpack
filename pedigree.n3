@@ -1,4 +1,6 @@
 @prefix dtype: <http://www.w3.org/2001/XMLSchema#> . 
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbpedia2: <http://dbpedia.org/property/> .
 @prefix fhkb: <http://www.example.com/genealogy.owl#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -7,15 +9,307 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fhkb:alexander_karpovich_1994 a owl:NamedIndividual ;
+
+fhkb:drobysh_ivan_1889 a owl:NamedIndividual ;
+  foaf:firstName "Иван"^^dtype:string ;
+  foaf:lastName "Дробыш"^^dtype:string ;
+  dbo:birthdate "1889-01-01"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  fhkb:isFatherOf fhkb:drobysh_anton_1909
+  .
+
+fhkb:drobysh_maria_1890 a owl:NamedIndividual ;
+  foaf:firstName "Мария"^^dtype:string ;
+  foaf:lastName "Дробыш"^^dtype:string ;
+  dbo:birthdate "1890-01-01"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  fhkb:isMotherOf fhkb:drobysh_anton_1909
+  .
+
+fhkb:marmysh_alexey_1980 a owl:NamedIndividual ;
+  foaf:firstName "Алексей"^^dtype:string ;
+  foaf:lastName "Мармыш"^^dtype:string ;
+  dbo:birthdate "1890-01-01"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  fhkb:isFatherOf fhkb:marmysh_solomia_1911
+  .
+
+fhkb:horbachevskaya_feodora_1891 a owl:NamedIndividual ;
+  foaf:firstName "Феодора"^^dtype:string ;
+  foaf:lastName "Горбачевская"^^dtype:string ;
+  dbo:birthdate "1891-01-01"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  fhkb:isMotherOf fhkb:marmysh_solomia_1911
+  .
+
+fhkb:karpovich_yakov_1889 a owl:NamedIndividual ;
+  foaf:firstName "Яков"^^dtype:string ;
+  foaf:lastName "Карпович"^^dtype:string ;
+  dbo:birthdate "1889-01-01"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  fhkb:isFatherOf fhkb:karpovich_petr_1911
+  .
+
+fhkb:karpovich_pavel_1890 a owl:NamedIndividual ;
+  foaf:firstName "Павел"^^dtype:string ;
+  foaf:lastName "Карпович"^^dtype:string ;
+  dbo:birthdate "1890-01-01"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  fhkb:isFatherOf fhkb:karpovich_marya_1911
+  .
+
+fhkb:karpovich_sophya_1890 a owl:NamedIndividual ;
+  foaf:firstName "София"^^dtype:string ;
+  foaf:lastName "Карпович"^^dtype:string ;
+  dbo:birthdate "1890-01-01"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  fhkb:isMotherOf fhkb:karpovich_marya_1911
+  .
+
+fhkb:drobysh_anton_1909 a owl:NamedIndividual ;
+  foaf:firstName "Антон"^^dtype:string ;
+  foaf:lastName "Дробыш"^^dtype:string ;
+  dbo:birthdate "1909-06-06"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  fhkb:isFatherOf fhkb:drobysh_yevgeniya_1937 ;
+  fhkb:isFatherOf fhkb:drobysh_marya_1939 ;
+  fhkb:isFatherOf fhkb:drobysh_zoya_1941 ;
+  fhkb:isFatherOf fhkb:drobysh_zinaida_1943 ;
+  fhkb:isFatherOf fhkb:drobysh_alexandra_1945 ;
+  fhkb:isFatherOf fhkb:drobysh_anna_1946
+  .
+
+fhkb:marmysh_solomia_1911 a owl:NamedIndividual ;
+  foaf:firstName "Соломия"^^dtype:string ;
+  foaf:lastName "Мармыш"^^dtype:string ;
+  dbo:birthdate "1911-06-06"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  fhkb:isMotherOf fhkb:drobysh_yevgeniya_1937 ;
+  fhkb:isMotherOf fhkb:drobysh_marya_1939 ;
+  fhkb:isMotherOf fhkb:drobysh_zoya_1941 ;
+  fhkb:isMotherOf fhkb:drobysh_zinaida_1943 ;
+  fhkb:isMotherOf fhkb:drobysh_alexandra_1945 ;
+  fhkb:isMotherOf fhkb:drobysh_anna_1946
+  .
+
+fhkb:karpovich_petr_1911 a owl:NamedIndividual ;
+  foaf:firstName "Петр"^^dtype:string ;
+  foaf:lastName "Карпович"^^dtype:string ;
+  dbo:birthdate "1911-01-01"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  fhkb:isFatherOf fhkb:karpovich_michail_1936
+  .
+
+fhkb:karpovich_marya_1911 a owl:NamedIndividual ;
+  foaf:firstName "Мария"^^dtype:string ;
+  foaf:lastName "Карпович"^^dtype:string ;
+  dbo:birthdate "1911-01-01"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  fhkb:isMotherOf fhkb:karpovich_michail_1936
+  .
+
+fhkb:drobysh_yevgeniya_1937 a owl:NamedIndividual ;
+  foaf:firstName "Евгения"^^dtype:string ;
+  foaf:lastName "Дробыш"^^dtype:string ;
+  dbo:birthdate "1937-10-02"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  fhkb:isMotherOf fhkb:karpovich_yury_1963 ;
+  fhkb:isMotherOf fhkb:karpovich_vasiliy_1965 ;
+  fhkb:isMotherOf fhkb:karpovich_elena_1968
+  .
+
+fhkb:drobysh_marya_1939 a owl:NamedIndividual ;
+  foaf:firstName "Мария"^^dtype:string ;
+  foaf:lastName "Дробыш"^^dtype:string ;
+  dbo:birthdate "1939-01-01"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  .
+
+fhkb:drobysh_zoya_1941 a owl:NamedIndividual ;
+  foaf:firstName "Зоя"^^dtype:string ;
+  foaf:lastName "Дробыш"^^dtype:string ;
+  dbo:birthdate "1941-01-01"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  .
+
+fhkb:drobysh_zinaida_1943 a owl:NamedIndividual ;
+  foaf:firstName "Зинаида"^^dtype:string ;
+  foaf:lastName "Дробыш"^^dtype:string ;
+  dbo:birthdate "1943-01-01"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  .
+
+fhkb:drobysh_alexandra_1945 a owl:NamedIndividual ;
+  foaf:firstName "Александра"^^dtype:string ;
+  foaf:lastName "Дробыш"^^dtype:string ;
+  dbo:birthdate "1945-01-01"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  .
+
+fhkb:drobysh_anna_1946 a owl:NamedIndividual ;
+  foaf:firstName "Александра"^^dtype:string ;
+  foaf:lastName "Дробыш"^^dtype:string ;
+  dbo:birthdate "1946-01-01"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  .
+
+fhkb:karpovich_michail_1936 a owl:NamedIndividual ;
+  foaf:firstName "Михаил"^^dtype:string ;
+  foaf:lastName "Карпович"^^dtype:string ;
+  dbo:birthdate "1936-06-06"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  fhkb:isFatherOf fhkb:karpovich_yury_1963 ;
+  fhkb:isFatherOf fhkb:karpovich_vasiliy_1965 ;
+  fhkb:isFatherOf fhkb:karpovich_elena_1968
+  .
+
+fhkb:karpovich_vasiliy_1965 a owl:NamedIndividual ;
+  foaf:firstName "Василий"^^dtype:string ;
+  foaf:lastName "Карпович"^^dtype:string ;
+  dbo:birthdate "1965-01-01"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  .
+
+fhkb:karpovich_elena_1968 a owl:NamedIndividual ;
+  foaf:firstName "Елена"^^dtype:string ;
+  foaf:lastName "Карпович"^^dtype:string ;
+  dbo:birthdate "1968-01-01"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  .
+
+fhkb:shlyakhtun_iosif_1890 a owl:NamedIndividual ;
+  foaf:firstName "Иосиф"^^dtype:string ;
+  foaf:lastName "Шляхтун"^^dtype:string ;
+  dbo:birthdate "1890-01-01"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  fhkb:isFatherOf fhkb:shlyakhtun_vikentiy_1923
+  .
+
+fhkb:shlyakhtun_olga_1896 a owl:NamedIndividual ;
+  foaf:firstName "Ольга"^^dtype:string ;
+  foaf:lastName "Шляхтун"^^dtype:string ;
+  dbo:birthdate "1896-01-01"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  fhkb:isMotherOf fhkb:shlyakhtun_vikentiy_1923
+  .
+
+fhkb:osovik_haraim_1878 a owl:NamedIndividual ;
+  foaf:firstName "Гараим"^^dtype:string ;
+  foaf:lastName "Осовик"^^dtype:string ;
+  dbo:birthdate "1878-01-01"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  fhkb:isFatherOf fhkb:osovik_agaphya_1903
+  .
+
+fhkb:osovik_michail_1900 a owl:NamedIndividual ;
+  foaf:firstName "Михаил"^^dtype:string ;
+  foaf:lastName "Осовик"^^dtype:string ;
+  dbo:birthdate "1900-01-01"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  fhkb:isFatherOf fhkb:osovik_nadezhda_1923
+  .
+
+fhkb:osovik_agaphya_1903 a owl:NamedIndividual ;
+  foaf:firstName "Агафья"^^dtype:string ;
+  foaf:lastName "Осовик"^^dtype:string ;
+  dbo:birthdate "1903-01-01"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  fhkb:isMotherOf fhkb:osovik_nadezhda_1923
+  .
+
+fhkb:kovalevskiy_alexandr_1898 a owl:NamedIndividual ;
+  foaf:firstName "Александр"^^dtype:string ;
+  foaf:lastName "Ковалевский"^^dtype:string ;
+  dbo:birthdate "1898-01-01"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  fhkb:isFatherOf fhkb:kovalevskiy_samson_1936
+  .
+
+fhkb:kovalevskaya_marya_1899 a owl:NamedIndividual ;
+  foaf:firstName "Мария"^^dtype:string ;
+  foaf:lastName "Ковалевская"^^dtype:string ;
+  dbo:birthdate "1899-01-01"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  fhkb:isMotherOf fhkb:kovalevskiy_samson_1936
+  .
+
+fhkb:shlyakhtun_vikentiy_1923 a owl:NamedIndividual ;
+  foaf:firstName "Викентий"^^dtype:string ;
+  foaf:lastName "Шляхтун"^^dtype:string ;
+  dbo:birthdate "1923-06-04"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  fhkb:isFatherOf fhkb:shlyakhtun_anna_1942
+  .
+
+fhkb:osovik_nadezhda_1923 a owl:NamedIndividual ;
+  foaf:firstName "Надежда"^^dtype:string ;
+  foaf:lastName "Осовик"^^dtype:string ;
+  dbo:birthdate "1923-09-04"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  fhkb:isMotherOf fhkb:shlyakhtun_anna_1942
+  .
+
+fhkb:kovalevskiy_samson_1936 a owl:NamedIndividual ;
+  foaf:firstName "Самсон"^^dtype:string ;
+  foaf:lastName "Ковалевский"^^dtype:string ;
+  dbo:birthdate "1936-08-06"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  fhkb:isFatherOf fhkb:kovalevskaya_tomara_1962 ;
+  fhkb:isFatherOf fhkb:kovalevskaya_natalya_1966 ;
+  fhkb:isFatherOf fhkb:kovalevskaya_svetlana_1968
+  .
+
+fhkb:shlyakhtun_anna_1942 a owl:NamedIndividual ;
+  foaf:firstName "Анна"^^dtype:string ;
+  foaf:lastName "Шляхтун"^^dtype:string ;
+  dbo:birthdate "1942-08-09"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  fhkb:isMotherOf fhkb:kovalevskaya_tomara_1962 ;
+  fhkb:isMotherOf fhkb:kovalevskaya_natalya_1966 ;
+  fhkb:isMotherOf fhkb:kovalevskaya_svetlana_1968
+  .
+
+fhkb:kovalevskaya_tomara_1962 a owl:NamedIndividual ;
+  foaf:firstName "Томара"^^dtype:string ;
+  foaf:lastName "Ковалевская"^^dtype:string ;
+  dbo:birthdate "1962-01-01"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin>
+  .
+
+fhkb:kovalevskaya_natalya_1966 a owl:NamedIndividual ;
+  foaf:firstName "Наталья"^^dtype:string ;
+  foaf:lastName "Ковалевская"^^dtype:string ;
+  dbo:birthdate "1966-01-01"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin>
+  .
+
+fhkb:kovalevskaya_svetlana_1968 a owl:NamedIndividual ;
+  foaf:firstName "Светлана"^^dtype:string ;
+  foaf:lastName "Ковалевская"^^dtype:string ;
+  dbo:birthdate "1968-01-01"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin>
+  .
+
+fhkb:karpovich_yury_1963 a owl:NamedIndividual ;
+  foaf:firstName "Юрий"^^dtype:string ;
+  foaf:lastName "Карпович"^^dtype:string ;
+  dbo:birthdate "1963-08-04"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> ; 
+  fhkb:isFatherOf fhkb:karpovich_alexander_1994 ; 
+  fhkb:isFatherOf fhkb:karpovich_radion_1990 
+  .
+
+fhkb:karpovich_radion_1990 a owl:NamedIndividual ;
+  foaf:firstName "Радион"^^dtype:string ;
+  foaf:lastName "Карпович"^^dtype:string ;
+  dbo:birthdate "1990-05-26"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Mosty> 
+  .
+
+fhkb:karpovich_alexander_1994 a owl:NamedIndividual ;
   foaf:firstName "Александр"^^dtype:string ;
   foaf:lastName "Карпович"^^dtype:string ;
-  
+  dbo:birthdate "1994-01-27"^^xsd:date ;
+  dbpedia2:birthPlace <http://dbpedia.org/page/Shchuchin> 
   .
-
-fhkb:radion_karpovich_1990 a owl:NamedIndividual ;
-  foaf:firstName "Радион"^^dtype:string ;
-  foaf:lastName "Карпович"^^dtype:string 
-  .
-
 
